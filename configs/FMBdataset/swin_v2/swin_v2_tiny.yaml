@@ -1,0 +1,34 @@
+_BASE_: ../Base-FMBdataset-SemanticSegmentation.yaml
+
+DATASETS:
+  IMS_PER_BATCH: &b 8
+
+MODEL:
+  SWIN:
+    PRETRAINED: './pretrained_model/swinv2_tiny/swinv2_tiny_patch4_window16_256.pth'
+    FROZEN_STAGE: 4
+    EMBED_DIM: 96
+    DEPTHS: [2, 2, 6, 2]
+    NUM_HEADS: [3, 6, 12, 24]
+    WINDOW_SIZE: 16
+    PRETRAINED_WINDOW_SIZE: [16,16,16,16]
+    APE: False
+    DROP_PATH_RATE: 0.2
+    PATCH_NORM: True
+    USE_CHECKPOINT_LIST: [False,False,False,False]
+    OUT_FEATURES:  ["res2", "res3", "res4", "res5"]
+    MODEL_OUTPUT_ATTN: False
+  SEM_SEG_HEAD:
+    PIXEL_DECODER_NAME: "MSDeformAttnPixelDecoder"
+    TRANSFORMER_ENC_LAYERS: 6
+  MASK_FORMER:
+    DEC_LAYERS: 4  
+
+SOLVER:
+  IMS_PER_BATCH: *b  
+  BACKBONE_MULTIPLIER: 4.0  
+  CLIP_GRADIENTS:
+    ENABLED: True
+    CLIP_TYPE: "full_model"
+    CLIP_VALUE: 20.0
+    NORM_TYPE: 2.0
