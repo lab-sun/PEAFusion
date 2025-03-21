@@ -4,8 +4,6 @@
 
 </div>
 
-***
-
 
 This is the official pytorch implementation of the paper:
  >PEAFusion: Parameter-efficient Adaptation for RGB-Thermal fusion-based semantic segmentation
@@ -14,7 +12,6 @@ This is the official pytorch implementation of the paper:
  >
  >[[Paper](https://labsun.org/pub/INFFUS2025_peafusion.pdf)]
 
-***
 ## Usage
 
 ### Installation
