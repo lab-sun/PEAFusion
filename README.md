@@ -4,23 +4,8 @@
 
 </div>
 
-<style>
-.custom-hr {
-    border: none; /* 去掉默认边框 */
-    border-top: 0.1px solid white; /* 仅设置顶部边框 */
-    width: 100%;
-    margin: 10px auto;
-}
-</style>
-<style>
-.sub_custom-hr {
-    border: none; /* 去掉默认边框 */
-    border-top: 0.1px solid white; /* 仅设置顶部边框 */
-    width: 100%;
-    margin: 1px auto;
-}
-</style>
-<hr class="custom-hr">
+***
+
 
 This is the official pytorch implementation of the paper:
  >PEAFusion: Parameter-efficient Adaptation for RGB-Thermal fusion-based semantic segmentation
@@ -29,8 +14,8 @@ This is the official pytorch implementation of the paper:
  >
  >[[Paper](https://labsun.org/pub/INFFUS2025_peafusion.pdf)]
 
+***
 ## Usage
-<hr class="sub_custom-hr">
 
 ### Installation
 This codebase was developed and tested with the following packages. 
