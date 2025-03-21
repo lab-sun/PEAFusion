@@ -145,3 +145,7 @@ doi = {https://doi.org/10.1016/j.inffus.2025.103030}
 ## Related projects & Acknowledgement
 Our network architecture and codebase are built upon CRM_RGBTSeg. 
 * [CRM_RGBTSeg](https://github.com/UkcheolShin/CRM_RGBTSeg) (ICRA 2024)
+
+## Contact
+If you have any questions, please contact:
+* Yan Wang [<danielwang8163@gmail.com>]
