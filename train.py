@@ -29,14 +29,7 @@ import numpy as np
 def parse_args():
     parser = ArgumentParser(description='Training with DDP.')
 
-    # parser.add_argument("--config-file", default="./configs/PSTdataset/swin_v2/swin_v2_tiny.yaml", metavar="FILE", help="path to config file")
-    # parser.add_argument("--config-file", default="./configs/PSTdataset/swin_v2/swin_v2_base.yaml", metavar="FILE", help="path to config file")
-
-    # parser.add_argument("--config-file", default="./configs/FMBdataset/swin_v2/swin_v2_tiny.yaml", metavar="FILE", help="path to config file")
-
-    parser.add_argument("--config-file", default="./configs/MFdataset/swin_v2/swin_v2_tiny.yaml", metavar="FILE", help="path to config file")
-    # parser.add_argument("--config-file", default="./configs/MFdataset/swin_v2/swin_v2_base.yaml", metavar="FILE", help="path to config file")
-    # parser.add_argument("--config-file", default="./configs/MFdataset/swin_v2/swin_v2_large.yaml", metavar="FILE", help="path to config file")
+    parser.add_argument("--config-file", default="./configs/PSTdataset/swin_v2/swin_v2_tiny.yaml", metavar="FILE", help="path to config file")
     parser.add_argument("--num-gpus", type=int, default=1, help="number of gpus *per machine*")
     parser.add_argument('--work_dir',
                         type=str,
