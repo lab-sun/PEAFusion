@@ -79,7 +79,7 @@ Download the datasets and place them in the 'datasets' folder with the following
     ...
 ```
 Note:
-You may notice that the performance on the guardrail class is unacceptably low. This may be due to annotation errors in the guardrail class. The images in the test set containing guardrails are ['01236N', '01237N', '01238N', '01239N']; however, we found that the same object, which is labeled as a guardrail in these images, is annotated as a car stop in ['01234N', '01235N', '01240N', '01241N', '01242N', '01243N', '01244N', '01245N']. When the same object in the mentioned images is correctly annotated as a guardrail, the model achieves better and more balanced performance. (*This result does not appear in the paper.*)
+You may notice that the performance on the guardrail class in the MFNet dataset is unacceptably low. This may be due to annotation errors in the guardrail class. The images in the test set containing guardrails are ['01236N', '01237N', '01238N', '01239N']; however, we found that the same object, which is labeled as a guardrail in these images, is annotated as a car stop in ['01234N', '01235N', '01240N', '01241N', '01242N', '01243N', '01244N', '01245N']. When the same object in the mentioned images is correctly annotated as a guardrail, the model achieves better and more balanced performance. (*This result does not appear in the paper.*)
 
 <img src="images/label_visualization.png" width="1000px"/>
 
