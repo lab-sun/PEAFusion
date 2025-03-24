@@ -1,0 +1,41 @@
+_BASE_: ../Base-MFdataset-SemanticSegmentation.yaml
+
+
+DATASETS:
+  IMS_PER_BATCH: &b 8  # run on 2 gpus, global batch size: IMS_PER_BATCH * (number of gpu)
+
+MODEL:
+  SWIN:
+    PRETRAINED: './pretrained_model/swinv2_base/swinv2_base_patch4_window12_192_22k.pth'
+    FROZEN_STAGE: 4
+    EMBED_DIM: 128
+    DEPTHS: [2, 2, 18, 2]
+    NUM_HEADS: [4, 8, 16, 32]
+    WINDOW_SIZE: 12
+    PRETRAINED_WINDOW_SIZE: [12,12,12,12]
+    APE: False
+    DROP_PATH_RATE: 0.3
+    PATCH_NORM: True
+    USE_CHECKPOINT_LIST: [False,False,False,False]
+    OUT_FEATURES:  ["res2", "res3", "res4", "res5"]
+    ADD_MODEL_ADAPTER: True
+    MODEL_ADAPTER_SCALE: 4.0
+    MODEL_MHA_RATIO: 0.125
+    MODEL_FFN_RATIO: 0.5
+    MODEL_OUTPUT_ATTN: False
+  SEM_SEG_HEAD:
+    PIXEL_DECODER_NAME: "MSDeformAttnPixelDecoder"
+    TRANSFORMER_ENC_LAYERS: 6
+  MASK_FORMER:
+    DEC_LAYERS: 4 
+
+SOLVER:
+  IMS_PER_BATCH: *b
+  BASE_LR: 0.0001
+  MAX_ITER: 35000
+  BACKBONE_MULTIPLIER: 4.0 
+  CLIP_GRADIENTS:
+    ENABLED: True
+    CLIP_TYPE: "full_model"
+    CLIP_VALUE: 20.0
+    NORM_TYPE: 2.0
