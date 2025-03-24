@@ -1,0 +1,35 @@
+_BASE_: ../Base-PSTdataset-SemanticSegmentation.yaml
+
+
+DATASETS:
+  IMS_PER_BATCH: &b 4 # run on 2 gpus
+
+MODEL:
+  SWIN:
+    PRETRAINED: './pretrained_model/swinv2_base/swinv2_base_patch4_window12_192_22k.pth'
+    FROZEN_STAGE: 4
+    EMBED_DIM: 128
+    DEPTHS: [2, 2, 18, 2]
+    NUM_HEADS: [4, 8, 16, 32]
+    WINDOW_SIZE: 12
+    PRETRAINED_WINDOW_SIZE: [12,12,12,12]
+    APE: False
+    DROP_PATH_RATE: 0.3
+    PATCH_NORM: True
+    USE_CHECKPOINT_LIST: [False,False,False,False]
+    OUT_FEATURES:  ["res2", "res3", "res4", "res5"]
+    MODEL_OUTPUT_ATTN: False
+  SEM_SEG_HEAD:
+    PIXEL_DECODER_NAME: "MSDeformAttnPixelDecoder"
+    TRANSFORMER_ENC_LAYERS: 6
+  MASK_FORMER:
+    DEC_LAYERS: 4  
+
+SOLVER:
+  IMS_PER_BATCH: *b 
+  BACKBONE_MULTIPLIER: 4.0  
+  CLIP_GRADIENTS:
+    ENABLED: True
+    CLIP_TYPE: "full_model"
+    CLIP_VALUE: 20.0
+    NORM_TYPE: 2.0
