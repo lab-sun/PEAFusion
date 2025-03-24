@@ -1,40 +1,12 @@
-### Dataset
-Download the datasets and place them in the 'datasets' folder with the following structure:
-- [PST900 dataset](https://github.com/ShreyasSkandanS/pst900_thermal_rgb)
-- [FMB dataset](https://github.com/JinyuanLiu-CV/SegMiF)
-- [MF dataset](https://www.mi.t.u-tokyo.ac.jp/static/projects/mil_multispectral/)
-
+### Pre-trained Swin-V2 backbone
+Download pretrained backbones from [here](https://drive.google.com/drive/folders/1BkkE-PuN2Ypm27jdNfQtMoz1RFUZyGF1?usp=sharing) and place them in 'pretrained_model' folder in the following structure:
 ```shell
-<datasets>
-|-- <PSTdataset>
-    |-- <train>
-        |-- rgb
-        |-- thermal
-        |-- labels
-        ...
-    |-- <test>
-        |-- rgb
-        |-- thermal
-        |-- labels
-        ...
-|-- <FMB_dataset>
-    |-- <train>
-        |-- color
-        |-- Infrared
-        |-- Label
-        |-- Visible
-        ...
-    |-- <test>
-        |-- color
-        |-- Infrared
-        |-- Label
-        |-- Visible
-        ...
-|-- <MFdataset>
-    |-- <images>
-    |-- <labels>
-    |-- train.txt
-    |-- val.txt
-    |-- test.txt
+<pretrained_model>
+|-- <swinv2_tiny>
+    ...
+|-- <swinv2_base>
+    ...
+|-- <swinv2_large>
     ...
 ```
+If path errors are raised, please check the path of the pretrained backbones defined in the config file.
